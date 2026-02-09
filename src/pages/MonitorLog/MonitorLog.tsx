@@ -11,7 +11,19 @@ export function MonitorLog() {
     const fieldList = useSelector((state: RootState) => state.field.fields);
     const [log, setLog] = useState<Log | null>(null);
 
-  
+    // UPDATED: Label style with gradient text
+    const labelStyle = { 
+        fontWeight: "600", 
+        marginBottom: "8px",
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        background: "linear-gradient(135deg, #1abc9c, #3498db)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text"
+    };
+
     const headerStyle = { 
         background: "linear-gradient(135deg, #2c3e50 0%, #34495e 100%)", 
         color: "white",
@@ -120,8 +132,8 @@ export function MonitorLog() {
                 <form id="logForm" style={{ marginBottom: "30px" }}>
                     <div className="row mb-4">
                         <div className="col-md-3">
-                            <label htmlFor="logCode" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaClipboardList style={{ marginRight: "6px" }} />
+                            <label htmlFor="logCode" style={labelStyle}>
+                                <FaClipboardList />
                                 Log Code
                             </label>
                             <input 
@@ -136,8 +148,8 @@ export function MonitorLog() {
                             />
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="logDate" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaCalendarAlt style={{ marginRight: "6px" }} />
+                            <label htmlFor="logDate" style={labelStyle}>
+                                <FaCalendarAlt />
                                 Log Date
                             </label>
                             <input 
@@ -152,8 +164,8 @@ export function MonitorLog() {
                             />
                         </div>
                         <div className="col-md-6">
-                            <label htmlFor="logDetail" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaInfoCircle style={{ marginRight: "6px" }} />
+                            <label htmlFor="logDetail" style={labelStyle}>
+                                <FaInfoCircle />
                                 Log Details
                             </label>
                             <input 
@@ -172,8 +184,8 @@ export function MonitorLog() {
 
                     <div className="row mb-4">
                         <div className="col-md-3">
-                            <label htmlFor="role" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaUserTie style={{ marginRight: "6px" }} />
+                            <label htmlFor="role" style={labelStyle}>
+                                <FaUserTie />
                                 Role
                             </label>
                             <select 
@@ -191,8 +203,8 @@ export function MonitorLog() {
                             </select>
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="fieldCode" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaMapMarkerAlt style={{ marginRight: "6px" }} />
+                            <label htmlFor="fieldCode" style={labelStyle}>
+                                <FaMapMarkerAlt />
                                 Field Code
                             </label>
                             <select 
