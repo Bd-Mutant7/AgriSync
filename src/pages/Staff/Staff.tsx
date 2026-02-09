@@ -46,6 +46,34 @@ export function Staff() {
         gap: "8px"
     };
 
+    // UPDATED: Label style with gradient text
+    const labelStyle = { 
+        fontWeight: "600", 
+        marginBottom: "8px",
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        background: "linear-gradient(135deg, #1abc9c, #3498db)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text"
+    };
+
+    // UPDATED: Section header style with gradient text
+    const sectionHeaderStyle = { 
+        marginBottom: "20px", 
+        borderBottom: "2px solid #1abc9c", 
+        paddingBottom: "10px",
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        background: "linear-gradient(135deg, #2c3e50, #34495e)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text",
+        fontWeight: "600"
+    };
+
     const genderOptions = [
         { value: "MALE", label: "Male" },
         { value: "FEMALE", label: "Female" },
@@ -118,32 +146,32 @@ export function Staff() {
                 <form id="staffForm">
                     {/* Personal Information Section */}
                     <div className="form-section mb-4 p-4" style={{ background: "linear-gradient(145deg, rgba(52, 152, 219, 0.05), rgba(26, 188, 156, 0.05))", borderRadius: "12px" }}>
-                        <h5 style={{ color: "#2c3e50", marginBottom: "20px", borderBottom: "2px solid #1abc9c", paddingBottom: "10px" }}>
-                            <FaUser style={{ marginRight: "10px" }} /> Personal Information
+                        <h5 style={sectionHeaderStyle}>
+                            <FaUser /> Personal Information
                         </h5>
                         
                         <div className="row">
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="staffId1" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                                <label htmlFor="staffId1" style={labelStyle}>
                                     Staff ID
                                 </label>
                                 <input type="text" className="form-control" id="staffId1" name="staffId" value={staff?.staffId || ''} style={inputStyle} onChange={handleChange} />
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="firstName" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                                <label htmlFor="firstName" style={labelStyle}>
                                     First Name
                                 </label>
                                 <input type="text" className="form-control" id="firstName" name="firstName" required value={staff?.firstName || ''} style={inputStyle} onChange={handleChange} />
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="lastName" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                                <label htmlFor="lastName" style={labelStyle}>
                                     Last Name
                                 </label>
                                 <input type="text" className="form-control" id="lastName" name="lastName" required value={staff?.lastName || ''} style={inputStyle} onChange={handleChange} />
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="designation" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                    <FaBriefcase style={{ marginRight: "6px" }} />
+                                <label htmlFor="designation" style={labelStyle}>
+                                    <FaBriefcase />
                                     Designation
                                 </label>
                                 <input type="text" className="form-control" id="designation" name="designation" required value={staff?.designation || ''} style={inputStyle} onChange={handleChange} />
@@ -152,8 +180,8 @@ export function Staff() {
                         
                         <div className="row">
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="gender" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                    <FaVenusMars style={{ marginRight: "6px" }} />
+                                <label htmlFor="gender" style={labelStyle}>
+                                    <FaVenusMars />
                                     Gender
                                 </label>
                                 <select className="form-control" id="gender" name="gender" style={inputStyle} value={staff?.gender || ''} onChange={handleChange}>
@@ -165,20 +193,20 @@ export function Staff() {
                                 </select>
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="joinedDate" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                                <label htmlFor="joinedDate" style={labelStyle}>
                                     Joined Date
                                 </label>
                                 <input type="date" className="form-control" id="joinedDate" name="joinedDate" required value={staff?.joinedDate || ''} style={inputStyle} onChange={handleChange} />
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="dob" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                    <FaBirthdayCake style={{ marginRight: "6px" }} />
+                                <label htmlFor="dob" style={labelStyle}>
+                                    <FaBirthdayCake />
                                     Date of Birth
                                 </label>
                                 <input type="date" className="form-control" id="dob" name="dob" required value={staff?.dob || ''} style={inputStyle} onChange={handleChange} />
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="members" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                                <label htmlFor="members" style={labelStyle}>
                                     Members
                                 </label>
                                 <input type="number" className="form-control" id="members" name="members" style={inputStyle} value={staff?.members || ''} onChange={handleChange} min="0" />
@@ -188,28 +216,28 @@ export function Staff() {
 
                     {/* Contact & Assignment Section */}
                     <div className="form-section mb-4 p-4" style={{ background: "linear-gradient(145deg, rgba(155, 89, 182, 0.05), rgba(52, 152, 219, 0.05))", borderRadius: "12px" }}>
-                        <h5 style={{ color: "#2c3e50", marginBottom: "20px", borderBottom: "2px solid #9b59b6", paddingBottom: "10px" }}>
-                            <FaMapMarkerAlt style={{ marginRight: "10px" }} /> Contact & Assignment
+                        <h5 style={{ ...sectionHeaderStyle, borderBottom: "2px solid #9b59b6" }}>
+                            <FaMapMarkerAlt /> Contact & Assignment
                         </h5>
                         
                         <div className="row">
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="contactNo" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                    <FaPhone style={{ marginRight: "6px" }} />
+                                <label htmlFor="contactNo" style={labelStyle}>
+                                    <FaPhone />
                                     Contact No
                                 </label>
                                 <input type="text" className="form-control" id="contactNo" name="contactNo" required value={staff?.contactNo || ''} style={inputStyle} onChange={handleChange} />
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="email1" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                    <FaEnvelope style={{ marginRight: "6px" }} />
+                                <label htmlFor="email1" style={labelStyle}>
+                                    <FaEnvelope />
                                     Email
                                 </label>
                                 <input type="email" className="form-control" id="email1" name="email" required value={staff?.email || ''} style={inputStyle} onChange={handleChange} />
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="fieldCode1" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                    <FaMapMarkerAlt style={{ marginRight: "6px" }} />
+                                <label htmlFor="fieldCode1" style={labelStyle}>
+                                    <FaMapMarkerAlt />
                                     Field Code
                                 </label>
                                 <select className="form-control" id="fieldCode1" name="fieldCode" style={inputStyle} value={staff?.fieldCode || ''} onChange={handleChange}>
@@ -221,15 +249,15 @@ export function Staff() {
                                 </select>
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label htmlFor="vCode" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                    <FaCar style={{ marginRight: "6px" }} />
+                                <label htmlFor="vCode" style={labelStyle}>
+                                    <FaCar />
                                     Vehicle Code
                                 </label>
                                 <select className="form-control" id="vCode" name="vcode" style={inputStyle} value={staff?.vcode || ''} onChange={handleChange}>
                                     {vehicleCodeOptions.map(option => (
                                         <option key={option.value} value={option.value} style={{ backgroundColor: "#34495e", color: "#ecf0f1" }}>
                                             {option.label}
-                                        </option>
+                                    </option>
                                     ))}
                                 </select>
                             </div>
@@ -238,7 +266,7 @@ export function Staff() {
                         <div className="row">
                             {[1, 2, 3, 4, 5].map(num => (
                                 <div className="col-md-2 mb-3" key={num}>
-                                    <label htmlFor={`addressLine${num}`} style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                                    <label htmlFor={`addressLine${num}`} style={labelStyle}>
                                         Address Line {num}
                                     </label>
                                     <input 
