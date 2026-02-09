@@ -13,7 +13,19 @@ export function Field() {
     const fields = useSelector((state: RootState) => state.field.fields);
     const [field, setField] = useState<FieldModel>({} as FieldModel);
 
-   
+    // UPDATED: Label style with gradient text
+    const labelStyle = { 
+        fontWeight: "600", 
+        marginBottom: "8px",
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        background: "linear-gradient(135deg, #1abc9c, #3498db)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text"
+    };
+
     const inputStyle = { 
         backgroundColor: "#34495e", 
         color: "#ecf0f1",
@@ -115,7 +127,7 @@ export function Field() {
                     {/* First Row */}
                     <div className="row mb-3">
                         <div className="col-md-3">
-                            <label htmlFor="fieldCode" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                            <label htmlFor="fieldCode" style={labelStyle}>
                                 Field Code
                             </label>
                             <InputField
@@ -129,7 +141,7 @@ export function Field() {
                             />
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="fieldName" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                            <label htmlFor="fieldName" style={labelStyle}>
                                 Field Name
                             </label>
                             <InputField
@@ -143,8 +155,8 @@ export function Field() {
                             />
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="fieldLocation" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaMapMarkerAlt style={{ marginRight: "6px" }} />
+                            <label htmlFor="fieldLocation" style={labelStyle}>
+                                <FaMapMarkerAlt />
                                 Field Location
                             </label>
                             <InputField
@@ -158,7 +170,7 @@ export function Field() {
                             />
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="size" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                            <label htmlFor="size" style={labelStyle}>
                                 Size (Acres)
                             </label>
                             <InputField
@@ -179,8 +191,8 @@ export function Field() {
                     {/* Second Row */}
                     <div className="row mb-3">
                         <div className="col-md-3">
-                            <label htmlFor="cropCode" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaSeedling style={{ marginRight: "6px" }} />
+                            <label htmlFor="cropCode" style={labelStyle}>
+                                <FaSeedling />
                                 Crop Code
                             </label>
                             <SelectField
@@ -195,7 +207,7 @@ export function Field() {
                             />
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="nameOfCrop" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                            <label htmlFor="nameOfCrop" style={labelStyle}>
                                 Crop Name
                             </label>
                             <InputField
@@ -209,8 +221,8 @@ export function Field() {
                             />
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="staffId" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaUser style={{ marginRight: "6px" }} />
+                            <label htmlFor="staffId" style={labelStyle}>
+                                <FaUser />
                                 Staff ID
                             </label>
                             <SelectField
@@ -225,8 +237,8 @@ export function Field() {
                             />
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="fieldImage1" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaImage style={{ marginRight: "6px" }} />
+                            <label htmlFor="fieldImage1" style={labelStyle}>
+                                <FaImage />
                                 Field Image
                             </label>
                             <InputField
