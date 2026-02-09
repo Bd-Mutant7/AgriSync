@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --white: #ecf0f1;
+    --black: #2c3e50;
+    --lightBlue: #1abc9c;
+    --darkBlue: #34495e;
+    --accentBlue: #3498db;
+    --gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --gradientAccent: linear-gradient(135deg, #1abc9c, #3498db);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--gradient) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(26, 188, 156, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+    z-index: -1;
+}
+
+.wrapper{
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: var(--darkBlue);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.wrapper .form-box{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--darkBlue);
+}
+
+.wrapper .form-box.login{
+    left: 0;
+    padding: 0 60px 0 40px;
+}
+
+.form-box h2{
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 32px;
+    color: var(--white);
+    text-align: center;
+    font-weight: 700;
+}
+
+.form-box h2::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--gradientAccent);
+    border-radius: 2px;
+}
+
+.form-box .input-box{
+    position: relative;
+    width: 100%;
+    height: 55px;
+    margin: 25px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    outline: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    padding: 0 45px 0 15px;
+}
+
+.input-box input:focus,
+.input-box input:valid{
+    border-color: var(--lightBlue);
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: rgba(236, 240, 241, 0.7);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: var(--darkBlue);
+    padding: 0 8px;
+}
+
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: 0;
+    font-size: 14px;
+    color: var(--lightBlue);
+    font-weight: 600;
+}
+
+.input-box i{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgba(236, 240, 241, 0.7);
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus~i,
+.input-box input:valid~i{
+    color: var(--lightBlue);
+}
+
+form button{
+    width: 100%;
+    height: 50px;
+    background: var(--gradientAccent);
+    color: var(--white);
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 6px 20px rgba(26, 188, 156, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+form button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(26, 188, 156, 0.4);
+}
+
+form button:hover::before {
+    left: 100%;
+}
+
+form .linkTxt{
+    font-size: 14px;
+    color: rgba(236, 240, 241, 0.7);
+    text-align: center;
+    margin: 25px 0 15px;
+}
+
+.linkTxt p a{
+    color: var(--accentBlue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.linkTxt p a:hover{
+    color: var(--lightBlue);
+    text-decoration: underline;
+}
+
+.wrapper .form-box.login .animation{
+    transform: translateX(0);
+    transition: 0.7s ease;
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .form-box.login .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.wrapper .info-text{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--gradient);
+    padding: 40px;
+}
+
+.wrapper .info-text.login{
+    right: 0;
+    text-align: right;
+}
+
+.wrapper .info-text h2{
+    font-size: 36px;
+    color: var(--white);
+    line-height: 1.3;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wrapper .info-text p{
+    font-size: 16px;
+    color: rgba(236, 240, 241, 0.8);
+    line-height: 1.6;
+}
+
+.wrapper .info-text.login .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: 0.7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .info-text.login .animation{
+    transform: translateX(120px);
+    opacity: 0;
+    filter: blur(10px);
+    transition: 0.7s ease;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.wrapper .rotate-bg{
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 850px;
+    height: 600px;
+    background: var(--gradientAccent);
+    transform: rotate(10deg) skewY(40deg);
+    transform-origin: bottom right;
+    transition: 1.5s ease;
+    transition-delay: 1.6s;
+    opacity: 0.9;
+}
+
+.wrapper.active .rotate-bg{
+    transform: rotate(0) skewY(0);
+    transition-delay: 0.5s;
+}
+
+.wrapper .form-box.register{
+    padding: 0 40px 0 60px;
+    right: 0;
+}
+
+.wrapper.active .form-box.register{
+    pointer-events: auto;
+}
+
+.wrapper .form-box.register .animation{
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .form-box.register .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.wrapper .info-text.register{
+    left: 0;
+    text-align: left;
+    pointer-events: none;
+}
+
+.wrapper.active .info-text.register{
+    pointer-events: auto;
+}
+
+.wrapper .info-text.register .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .info-text.register .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.wrapper .rotate-bg2{
+    position: absolute;
+    top: 100%;
+    left: 250px;
+    width: 850px;
+    height: 700px;
+    background: var(--darkBlue);
+    transform: rotate(0) skewY(0);
+    transform-origin: bottom left;
+    transition: 1.5s ease;
+    transition-delay: 0.5s;
+    opacity: 0.9;
+}
+
+.wrapper.active .rotate-bg2{
+    transform: rotate(-11deg) skewY(-40deg);
+    transition-delay: 1.2s;
+}
+
+#signUp{
+    margin-bottom: -10px;
+}
+
+
+@media (max-width: 850px) {
+    .wrapper {
+        width: 90%;
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .wrapper .form-box,
+    .wrapper .info-text {
+        width: 100%;
+        padding: 40px;
+    }
+    
+    .wrapper .form-box.login,
+    .wrapper .form-box.register {
+        padding: 40px;
+    }
+    
+    .wrapper.active .form-box.login,
+    .wrapper.active .form-box.register {
+        z-index: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        width: 95%;
+        border-radius: 12px;
+    }
+    
+    .wrapper .form-box.login,
+    .wrapper .form-box.register {
+        padding: 30px 20px;
+    }
+    
+    .form-box h2 {
+        font-size: 28px;
+    }
+    
+    .wrapper .info-text h2 {
+        font-size: 30px;
+    }
+    
+    .form-box .input-box {
+        height: 50px;
+        margin: 20px 0;
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-box .input-box,
+.form-box h2,
+form button,
+form .linkTxt {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.form-box .input-box:nth-child(1) { animation-delay: 0.1s; }
+.form-box .input-box:nth-child(2) { animation-delay: 0.2s; }
+.form-box h2 { animation-delay: 0s; }
+form button { animation-delay: 0.4s; }
+form .linkTxt { animation-delay: 0.5s; }

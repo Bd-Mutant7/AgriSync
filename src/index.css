@@ -1,0 +1,11 @@
+/* Make the entire app scrollable */
+html, body, #root {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Ensure the main container allows scrolling */
+.container-fluid {
+  min-height: 100vh;
+  overflow-y: auto;
+}
