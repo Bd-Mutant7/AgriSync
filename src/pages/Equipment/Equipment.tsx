@@ -10,7 +10,19 @@ export function Equipment() {
     const equipmentList = useSelector((state: RootState) => state.equipment);
     const [equipment, setEquipment] = useState<EquipmentModel | null>(null);
 
-  
+    // UPDATED: Label style with gradient text
+    const labelStyle = { 
+        fontWeight: "600", 
+        marginBottom: "8px",
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        background: "linear-gradient(135deg, #1abc9c, #3498db)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text"
+    };
+
     const staffOptions = [
         { id: "ST001", name: "John Doe" },
         { id: "ST002", name: "Jane Smith" },
@@ -107,7 +119,7 @@ export function Equipment() {
             <form id="equipmentForm" style={{ marginBottom: "30px" }}>
                 <div className="row" style={{ marginBottom: "20px" }}>
                     <div className="col-md-3">
-                        <label htmlFor="equipmentId" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                        <label htmlFor="equipmentId" style={labelStyle}>
                             Equipment ID
                         </label>
                         <input 
@@ -122,7 +134,7 @@ export function Equipment() {
                         />
                     </div>
                     <div className="col-md-3">
-                        <label htmlFor="name1" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                        <label htmlFor="name1" style={labelStyle}>
                             Name
                         </label>
                         <input 
@@ -137,7 +149,7 @@ export function Equipment() {
                         />
                     </div>
                     <div className="col-md-2">
-                        <label htmlFor="type" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                        <label htmlFor="type" style={labelStyle}>
                             Type
                         </label>
                         <select 
@@ -155,7 +167,7 @@ export function Equipment() {
                         </select>
                     </div>
                     <div className="col-md-2">
-                        <label htmlFor="status1" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                        <label htmlFor="status1" style={labelStyle}>
                             Status
                         </label>
                         <select 
@@ -174,7 +186,7 @@ export function Equipment() {
                         </select>
                     </div>
                     <div className="col-md-2">
-                        <label htmlFor="quantity" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                        <label htmlFor="quantity" style={labelStyle}>
                             Quantity
                         </label>
                         <input 
@@ -193,8 +205,8 @@ export function Equipment() {
 
                 <div className="row mt-3">
                     <div className="col-md-3">
-                        <label htmlFor="assignedStaffId" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                            <FaUser style={{ marginRight: "8px" }} />
+                        <label htmlFor="assignedStaffId" style={labelStyle}>
+                            <FaUser />
                             Assigned Staff
                         </label>
                         <select 
@@ -218,8 +230,8 @@ export function Equipment() {
                         </select>
                     </div>
                     <div className="col-md-3">
-                        <label htmlFor="assignedFieldCode" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                            <FaTractor style={{ marginRight: "8px" }} />
+                        <label htmlFor="assignedFieldCode" style={labelStyle}>
+                            <FaTractor />
                             Assigned Field Code
                         </label>
                         <select 
