@@ -50,6 +50,19 @@ export function Vehicle() {
         gap: "8px"
     };
 
+    // UPDATED: Label style with gradient text
+    const labelStyle = { 
+        fontWeight: "600", 
+        marginBottom: "8px",
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        background: "linear-gradient(135deg, #1abc9c, #3498db)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text"
+    };
+
     const vehicleCategories = [
         { value: "CAR", label: "CAR", icon: <FaCar /> },
         { value: "TRUCK", label: "TRUCK", icon: <FaCar /> },
@@ -124,7 +137,7 @@ export function Vehicle() {
                     {/* Basic Information Row */}
                     <div className="row mb-4">
                         <div className="col-md-6">
-                            <label htmlFor="vehicleCode" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                            <label htmlFor="vehicleCode" style={labelStyle}>
                                 Vehicle Code
                             </label>
                             <InputField
@@ -138,7 +151,7 @@ export function Vehicle() {
                             />
                         </div>
                         <div className="col-md-6">
-                            <label htmlFor="licensePlateNumber" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                            <label htmlFor="licensePlateNumber" style={labelStyle}>
                                 License Plate Number
                             </label>
                             <InputField
@@ -156,8 +169,8 @@ export function Vehicle() {
                     {/* Category & Status Row */}
                     <div className="row mb-4">
                         <div className="col-md-4">
-                            <label htmlFor="vehicleCategory" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaCar style={{ marginRight: "6px" }} />
+                            <label htmlFor="vehicleCategory" style={labelStyle}>
+                                <FaCar />
                                 Vehicle Category
                             </label>
                             <SelectField
@@ -172,8 +185,8 @@ export function Vehicle() {
                             />
                         </div>
                         <div className="col-md-4">
-                            <label htmlFor="fuelType" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaGasPump style={{ marginRight: "6px" }} />
+                            <label htmlFor="fuelType" style={labelStyle}>
+                                <FaGasPump />
                                 Fuel Type
                             </label>
                             <SelectField
@@ -188,7 +201,7 @@ export function Vehicle() {
                             />
                         </div>
                         <div className="col-md-4">
-                            <label htmlFor="status" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
+                            <label htmlFor="status" style={labelStyle}>
                                 Status
                             </label>
                             <SelectField
@@ -210,8 +223,8 @@ export function Vehicle() {
                     {/* Assignment & Remarks Row */}
                     <div className="row mb-4">
                         <div className="col-md-6">
-                            <label htmlFor="allocatedStaffId" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaUser style={{ marginRight: "6px" }} />
+                            <label htmlFor="allocatedStaffId" style={labelStyle}>
+                                <FaUser />
                                 Allocated Staff
                             </label>
                             <SelectField
@@ -232,8 +245,8 @@ export function Vehicle() {
                             />
                         </div>
                         <div className="col-md-6">
-                            <label htmlFor="remarks" style={{ color: "#2c3e50", fontWeight: "600", marginBottom: "8px" }}>
-                                <FaComment style={{ marginRight: "6px" }} />
+                            <label htmlFor="remarks" style={labelStyle}>
+                                <FaComment />
                                 Remarks
                             </label>
                             <InputField
