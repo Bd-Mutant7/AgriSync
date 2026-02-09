@@ -48,7 +48,11 @@ This React application is designed to streamline and simplify the operations of 
   npm run dev
 ```
 
-## 
+## Roadmap
+- [ ] User login & authentication
+- [ ] Role-based access
+- [ ] Data analytics
+
 
 
 ## License
@@ -79,6 +83,7 @@ Copyright © 2026 Bd-Mutant7
 <p align="center">
   &copy; 2026 P_Kariuki007
 </p>
+
 
 
 
